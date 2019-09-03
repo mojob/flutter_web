@@ -117,7 +117,7 @@ class DomRenderer {
   html.Element get glassPaneElement => _glassPaneElement;
   html.Element _glassPaneElement;
 
-  final html.Element rootElement = html.document.body;
+  final html.Element rootElement = html.document.getElementById('flutter-app');
 
   void addElementClass(html.Element element, String className) {
     element.classes.add(className);
@@ -290,32 +290,32 @@ flt-glass-pane * {
 ''', sheet.cssRules.length);
     }
 
-    final html.BodyElement bodyElement = html.document.body;
-    setElementStyle(bodyElement, 'position', 'fixed');
-    setElementStyle(bodyElement, 'top', '0');
-    setElementStyle(bodyElement, 'right', '0');
-    setElementStyle(bodyElement, 'bottom', '0');
-    setElementStyle(bodyElement, 'left', '0');
-    setElementStyle(bodyElement, 'overflow', 'hidden');
-    setElementStyle(bodyElement, 'padding', '0');
-    setElementStyle(bodyElement, 'margin', '0');
+    final html.DicElement divElement = html.document.getElementById('flutter-app');
+    setElementStyle(divElement, 'position', 'fixed');
+    setElementStyle(divElement, 'top', '0');
+    setElementStyle(divElement, 'right', '0');
+    setElementStyle(divElement, 'bottom', '0');
+    setElementStyle(divElement, 'left', '0');
+    setElementStyle(divElement, 'overflow', 'hidden');
+    setElementStyle(divElement, 'padding', '0');
+    setElementStyle(divElement, 'margin', '0');
 
     // TODO(yjbanov): fix this when we support KVM I/O. Currently we scroll
     //                using drag, and text selection interferes.
-    setElementStyle(bodyElement, 'user-select', 'none');
-    setElementStyle(bodyElement, '-webkit-user-select', 'none');
-    setElementStyle(bodyElement, '-ms-user-select', 'none');
-    setElementStyle(bodyElement, '-moz-user-select', 'none');
+    setElementStyle(divElement, 'user-select', 'none');
+    setElementStyle(divElement, '-webkit-user-select', 'none');
+    setElementStyle(divElement, '-ms-user-select', 'none');
+    setElementStyle(divElement, '-moz-user-select', 'none');
 
     // This is required to prevent the browser from doing any native touch
     // handling. If we don't do this, the browser doesn't report 'pointermove'
     // events properly.
-    setElementStyle(bodyElement, 'touch-action', 'none');
+    setElementStyle(divElement, 'touch-action', 'none');
 
     // These are intentionally outrageous font parameters to make sure that the
     // apps fully specifies their text styles.
-    setElementStyle(bodyElement, 'font', defaultCssFont);
-    setElementStyle(bodyElement, 'color', 'red');
+    setElementStyle(divElement, 'font', defaultCssFont);
+    setElementStyle(divElement, 'color', 'red');
 
     // TODO(flutter_web): send the location during the scroll for more frequent
     // location updates from the framework. Remove spellcheck=false property.
@@ -330,7 +330,7 @@ flt-glass-pane * {
     /// via scroll. This is possible since we can listen to the scroll on
     /// Flutter.
     /// See [HybridTextEditing].
-    bodyElement.spellcheck = false;
+    divElement.spellcheck = false;
 
     for (html.Element viewportMeta
         in html.document.head.querySelectorAll('meta[name="viewport"]')) {
@@ -371,7 +371,7 @@ flt-glass-pane * {
       ..right = '0'
       ..bottom = '0'
       ..left = '0';
-    bodyElement.append(_glassPaneElement);
+    divElement.append(_glassPaneElement);
 
     _sceneHostElement = createElement('flt-scene-host');
 
