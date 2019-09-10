@@ -34,7 +34,8 @@ class RulerManager {
       ..left = '0'
       ..width = '0'
       ..height = '0';
-    html.document.body.append(_rulerHost);
+
+    html.document.getElementById('flutter-app').append(_rulerHost);
     registerHotRestartListener(dispose);
   }
 
