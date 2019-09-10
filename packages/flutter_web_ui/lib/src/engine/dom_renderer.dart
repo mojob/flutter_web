@@ -290,7 +290,8 @@ flt-glass-pane * {
 ''', sheet.cssRules.length);
     }
 
-    final html.DicElement divElement = html.document.getElementById('flutter-app');
+    final html.DivElement divElement = html.document.getElementById
+      ('flutter-app');
     setElementStyle(divElement, 'position', 'fixed');
     setElementStyle(divElement, 'top', '0');
     setElementStyle(divElement, 'right', '0');
