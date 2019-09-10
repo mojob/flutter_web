@@ -67,7 +67,7 @@ class AccessibilityAnnouncements {
   void _initLiveRegion(String message) {
     _domElement.setAttribute('aria-live', 'polite');
     _domElement.text = message;
-    html.document.body.append(_domElement);
+    html.document.getElementById('flutter-app').append(_domElement);
   }
 
   html.LabelElement _createElement() {

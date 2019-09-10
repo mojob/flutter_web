@@ -316,7 +316,7 @@ class TextEditingElement {
         throw UnsupportedError(
             'Unsupported input type: ${inputConfig.inputType}');
     }
-    html.document.body.append(domElement);
+    html.document.getElementById('flutter-app').append(domElement);
   }
 
   void _removeDomElement() {
@@ -492,7 +492,7 @@ class PersistentTextEditingElement extends TextEditingElement {
     // In persistent mode, the user of this class is supposed to insert the
     // [domElement] on their own. Let's make sure they did.
     assert(domElement != null);
-    assert(html.document.body.contains(domElement));
+    assert(html.document.getElementById('flutter-app').contains(domElement));
   }
 
   @override

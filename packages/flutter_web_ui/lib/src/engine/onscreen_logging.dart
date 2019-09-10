@@ -73,7 +73,7 @@ void _initialize() {
     ..bottom = '0';
   _logElement.append(_logContainer);
 
-  html.document.body.append(_logElement);
+  html.document.getElementById('flutter-app').append(_logElement);
 }
 
 /// Dump the current stack to the console using [print] and

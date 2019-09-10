@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="be471625-ea4b-402f-95db-3a664ef21618" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/packages/flutter_web_ui/lib/src/engine/dom_renderer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/flutter_web_ui/lib/src/engine/dom_renderer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,11 +27,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/packages/flutter_web_ui/lib/src/engine/dom_renderer.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="297" column="39" selection-start-line="297" selection-start-column="39" selection-end-line="297" selection-end-column="39" />
+            <state relative-caret-position="92">
+              <caret line="286" column="18" lean-forward="true" selection-start-line="286" selection-start-column="18" selection-end-line="286" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/packages/flutter_web_ui/lib/src/ui/initialization.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -44,6 +53,7 @@
       <find>flutter_ui</find>
       <find>html.document</find>
       <find>DicEle</find>
+      <find>webOnlyLocationStrategy</find>
     </findStrings>
     <replaceStrings>
       <replace>flutter</replace>
@@ -62,11 +72,13 @@
       <list>
         <option value="$PROJECT_DIR$/packages/flutter_web_ui/lib/src/engine/text/measurement.dart" />
         <option value="$PROJECT_DIR$/packages/flutter_web_ui/lib/src/engine/dom_renderer.dart" />
+        <option value="$PROJECT_DIR$/packages/flutter_web_ui/lib/src/ui/initialization.dart" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+    <option name="x" value="4" />
+    <option name="y" value="67" />
     <option name="width" value="1680" />
     <option name="height" value="986" />
   </component>
@@ -139,14 +151,21 @@
       <option name="project" value="LOCAL" />
       <updated>1568120934128</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Disable history">
+      <created>1568122280810</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1568122280810</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="715000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="986" extended-state="0" />
+    <frame x="157" y="262" width="1680" height="986" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Resources Explorer" />
@@ -195,7 +214,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Change body to flutter app for ruler" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change body to flutter app for ruler" />
+    <MESSAGE value="Disable history" />
+    <option name="LAST_COMMIT_MESSAGE" value="Disable history" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/analysis_options.yaml">
@@ -223,8 +243,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/packages/flutter_web_ui/lib/src/engine/dom_renderer.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="297" column="39" selection-start-line="297" selection-start-column="39" selection-end-line="297" selection-end-column="39" />
+        <state relative-caret-position="92">
+          <caret line="286" column="18" lean-forward="true" selection-start-line="286" selection-start-column="18" selection-end-line="286" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/flutter_web_ui/lib/src/ui/initialization.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
         </state>
       </provider>
     </entry>

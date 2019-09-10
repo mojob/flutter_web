@@ -232,7 +232,7 @@ void _debugRepaintSurfaceStatsOverlay(PersistedScene scene) {
       ..zIndex = '1000'
       ..opacity = '0.8';
     _debugSurfaceStatsOverlayCtx = _debugSurfaceStatsOverlay.context2D;
-    html.document.body.append(_debugSurfaceStatsOverlay);
+    html.document.getElementById('flutter-app').append(_debugSurfaceStatsOverlay);
   }
 
   _debugSurfaceStatsOverlayCtx

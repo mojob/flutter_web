@@ -31,7 +31,7 @@ class DebugCanvasReuseOverlay {
       ..textDecoration = 'underline';
     title.text = 'Canvas Reuse';
 
-    html.document.body.append(
+    html.document.getElementById('flutter-app').append(
       container
         ..append(title)
         ..append(
