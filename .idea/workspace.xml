@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="be471625-ea4b-402f-95db-3a664ef21618" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="be471625-ea4b-402f-95db-3a664ef21618" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +16,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/packages/flutter_web_ui/lib/src/engine/text/measurement.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+            <state relative-caret-position="190">
+              <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
               <folding>
                 <element signature="e#0#32232#0" expanded="true" />
               </folding>
@@ -27,16 +25,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/packages/flutter_web_ui/lib/src/engine/dom_renderer.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="286" column="18" lean-forward="true" selection-start-line="286" selection-start-column="18" selection-end-line="286" selection-end-column="18" />
+            <state relative-caret-position="407">
+              <caret line="134" column="26" selection-start-line="134" selection-start-column="26" selection-end-line="134" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/packages/flutter_web_ui/lib/src/ui/initialization.dart">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
@@ -54,6 +52,7 @@
       <find>html.document</find>
       <find>DicEle</find>
       <find>webOnlyLocationStrategy</find>
+      <find>html.document.</find>
     </findStrings>
     <replaceStrings>
       <replace>flutter</replace>
@@ -73,6 +72,12 @@
         <option value="$PROJECT_DIR$/packages/flutter_web_ui/lib/src/engine/text/measurement.dart" />
         <option value="$PROJECT_DIR$/packages/flutter_web_ui/lib/src/engine/dom_renderer.dart" />
         <option value="$PROJECT_DIR$/packages/flutter_web_ui/lib/src/ui/initialization.dart" />
+        <option value="$PROJECT_DIR$/packages/flutter_web_ui/lib/src/engine/semantics/accessibility.dart" />
+        <option value="$PROJECT_DIR$/packages/flutter_web_ui/lib/src/engine/surface/surface.dart" />
+        <option value="$PROJECT_DIR$/packages/flutter_web_ui/lib/src/engine/surface/debug_canvas_reuse_overlay.dart" />
+        <option value="$PROJECT_DIR$/packages/flutter_web_ui/lib/src/engine/text/font_collection.dart" />
+        <option value="$PROJECT_DIR$/packages/flutter_web_ui/lib/src/engine/text_editing.dart" />
+        <option value="$PROJECT_DIR$/packages/flutter_web_ui/lib/src/engine/onscreen_logging.dart" />
       </list>
     </option>
   </component>
@@ -158,15 +163,21 @@
       <option name="project" value="LOCAL" />
       <updated>1568122280810</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add more body replacements">
+      <created>1568123175424</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1568123175424</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="715000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="157" y="262" width="1680" height="986" extended-state="0" />
-    <editor active="true" />
+    <frame x="4" y="67" width="1680" height="986" extended-state="0" />
     <layout>
       <window_info id="Resources Explorer" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24969475" />
@@ -215,7 +226,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Change body to flutter app for ruler" />
     <MESSAGE value="Disable history" />
-    <option name="LAST_COMMIT_MESSAGE" value="Disable history" />
+    <MESSAGE value="Add more body replacements" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add more body replacements" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/analysis_options.yaml">
@@ -231,10 +243,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/packages/flutter_web_ui/lib/src/ui/initialization.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/packages/flutter_web_ui/lib/src/engine/text/measurement.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+        <state relative-caret-position="190">
+          <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
           <folding>
             <element signature="e#0#32232#0" expanded="true" />
           </folding>
@@ -243,15 +262,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/packages/flutter_web_ui/lib/src/engine/dom_renderer.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="286" column="18" lean-forward="true" selection-start-line="286" selection-start-column="18" selection-end-line="286" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/flutter_web_ui/lib/src/ui/initialization.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
+        <state relative-caret-position="407">
+          <caret line="134" column="26" selection-start-line="134" selection-start-column="26" selection-end-line="134" selection-end-column="26" />
         </state>
       </provider>
     </entry>
