@@ -189,7 +189,7 @@ class _PolyfillFontManager extends _FontManager {
     html.document.getElementById('flutter-app').append(paragraph);
     final int sansSerifWidth = paragraph.offsetWidth;
 
-    paragraph.style.fontFamily = "'$family', sans-serif";
+    paragraph.style.fontFamily = '$family, sans-serif';
 
     final Completer<void> completer = Completer<void>();
 

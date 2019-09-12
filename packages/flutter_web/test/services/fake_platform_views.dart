@@ -8,53 +8,11 @@ import 'package:collection/collection.dart';
 
 import 'package:flutter_web/painting.dart';
 import 'package:flutter_web/services.dart';
-import 'package:flutter_web/widgets.dart';
-
-/// Used in internal testing.
-class FakePlatformViewController extends PlatformViewController {
-
-  FakePlatformViewController(int id) {
-    _id = id;
-  }
-
-  bool disposed = false;
-  bool focusCleared = false;
-
-  /// Events that are dispatched;
-  List<PointerEvent> dispatchedPointerEvents = <PointerEvent>[];
-
-  int _id;
-
-  @override
-  int get viewId => _id;
-
-  @override
-  void dispatchPointerEvent(PointerEvent event) {
-    dispatchedPointerEvents.add(event);
-  }
-
-  void clearTestingVariables() {
-    dispatchedPointerEvents.clear();
-    disposed = false;
-    focusCleared = false;
-  }
-
-  @override
-  void dispose() {
-    disposed = true;
-  }
-
-  @override
-  void clearFocus() {
-    focusCleared = true;
-  }
-}
 
 class FakeAndroidPlatformViewsController {
   FakeAndroidPlatformViewsController() {
     SystemChannels.platform_views.setMockMethodCallHandler(_onMethodCall);
   }
-
 
   Iterable<FakeAndroidPlatformView> get views => _views.values;
   final Map<int, FakeAndroidPlatformView> _views = <int, FakeAndroidPlatformView>{};
@@ -78,7 +36,7 @@ class FakeAndroidPlatformViewsController {
   void invokeViewFocused(int viewId) {
     final MethodCodec codec = SystemChannels.platform_views.codec;
     final ByteData data = codec.encodeMethodCall(MethodCall('viewFocused', viewId));
-    ServicesBinding.instance.defaultBinaryMessenger.handlePlatformMessage(SystemChannels.platform_views.name, data, (ByteData data) {});
+    BinaryMessages.handlePlatformMessage(SystemChannels.platform_views.name, data, (ByteData data) {});
   }
 
   Future<dynamic> _onMethodCall(MethodCall call) {
@@ -312,8 +270,9 @@ class FakeIosPlatformViewsController {
 
 class FakeHtmlPlatformViewsController {
   FakeHtmlPlatformViewsController() {
-      SystemChannels.platform_views.setMockMethodCallHandler(_onMethodCall);
+    SystemChannels.platform_views.setMockMethodCallHandler(_onMethodCall);
   }
+
 
   Iterable<FakeHtmlPlatformView> get views => _views.values;
   final Map<int, FakeHtmlPlatformView> _views = <int, FakeHtmlPlatformView>{};
@@ -334,6 +293,10 @@ class FakeHtmlPlatformViewsController {
         return _create(call);
       case 'dispose':
         return _dispose(call);
+      case 'resize':
+        return _resize(call);
+      case 'setDirection':
+        return _setDirection(call);
     }
     return Future<dynamic>.sync(() => null);
   }
@@ -342,6 +305,9 @@ class FakeHtmlPlatformViewsController {
     final Map<dynamic, dynamic> args = call.arguments;
     final int id = args['id'];
     final String viewType = args['viewType'];
+    final double width = args['width'];
+    final double height = args['height'];
+    final int layoutDirection = args['direction'];
 
     if (_views.containsKey(id))
       throw PlatformException(
@@ -359,7 +325,7 @@ class FakeHtmlPlatformViewsController {
       await createCompleter.future;
     }
 
-    _views[id] = FakeHtmlPlatformView(id, viewType);
+    _views[id] = FakeHtmlPlatformView(id, viewType, Size(width, height), layoutDirection);
     return Future<int>.sync(() => null);
   }
 
@@ -373,6 +339,42 @@ class FakeHtmlPlatformViewsController {
       );
 
     _views.remove(id);
+    return Future<dynamic>.sync(() => null);
+  }
+
+  Future<dynamic> _resize(MethodCall call) async {
+    final Map<dynamic, dynamic> args = call.arguments;
+    final int id = args['id'];
+    final double width = args['width'];
+    final double height = args['height'];
+
+    if (!_views.containsKey(id))
+      throw PlatformException(
+        code: 'error',
+        message: 'Trying to resize a platform view with unknown id: $id',
+      );
+
+    if (resizeCompleter != null) {
+      await resizeCompleter.future;
+    }
+    _views[id].size = Size(width, height);
+
+    return Future<dynamic>.sync(() => null);
+  }
+
+  Future<dynamic> _setDirection(MethodCall call) async {
+    final Map<dynamic, dynamic> args = call.arguments;
+    final int id = args['id'];
+    final int layoutDirection = args['direction'];
+
+    if (!_views.containsKey(id))
+      throw PlatformException(
+        code: 'error',
+        message: 'Trying to resize a platform view with unknown id: $id',
+      );
+
+    _views[id].layoutDirection = layoutDirection;
+
     return Future<dynamic>.sync(() => null);
   }
 }
@@ -462,10 +464,12 @@ class FakeUiKitView {
 }
 
 class FakeHtmlPlatformView {
-  FakeHtmlPlatformView(this.id, this.type);
+  FakeHtmlPlatformView(this.id, this.type, this.size, this.layoutDirection);
 
   final int id;
   final String type;
+  Size size;
+  int layoutDirection;
 
   @override
   bool operator ==(dynamic other) {
@@ -473,14 +477,16 @@ class FakeHtmlPlatformView {
       return false;
     final FakeHtmlPlatformView typedOther = other;
     return id == typedOther.id &&
-           type == typedOther.type;
+           type == typedOther.type &&
+           size == typedOther.size &&
+           layoutDirection == typedOther.layoutDirection;
   }
 
   @override
-  int get hashCode => hashValues(id, type);
+  int get hashCode => hashValues(id, type, size, layoutDirection);
 
   @override
   String toString() {
-    return 'FakeHtmlPlatformView(id: $id, type: $type)';
+    return 'FakeHtmlPlatformView(id: $id, type: $type, size: $size, layoutDirection: $layoutDirection)';
   }
 }

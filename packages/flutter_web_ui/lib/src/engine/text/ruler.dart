@@ -86,7 +86,7 @@ class ParagraphGeometricStyle {
       result.write(DomRenderer.defaultFontSize);
     }
     result.write(' ');
-    result.write(_quoteFontUnlessGeneric(effectiveFontFamily));
+    result.write(effectiveFontFamily);
 
     return result.toString();
   }
@@ -227,7 +227,7 @@ class TextDimensions {
   void applyStyle(ParagraphGeometricStyle style) {
     _element.style
       ..fontSize = style.fontSize != null ? '${style.fontSize.floor()}px' : null
-      ..fontFamily = _quoteFontUnlessGeneric(style.effectiveFontFamily)
+      ..fontFamily = style.effectiveFontFamily
       ..fontWeight =
           style.fontWeight != null ? fontWeightToCss(style.fontWeight) : null
       ..fontStyle = style.fontStyle != null
@@ -759,13 +759,8 @@ class ParagraphRuler {
 
   MeasurementResult cacheLookup(
       EngineParagraph paragraph, ui.ParagraphConstraints constraints) {
-    final String plainText = paragraph._plainText;
-    if (plainText == null) {
-      // Multi span paragraph, do not use cache item.
-      return null;
-    }
     final List<MeasurementResult> constraintCache =
-        _measurementCache[plainText];
+        _measurementCache[paragraph._plainText];
     if (constraintCache == null) {
       return null;
     }
